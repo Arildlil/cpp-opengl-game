@@ -1,5 +1,5 @@
 
-CC = gcc
+CC = g++
 LD = ld
 
 WARNINGS = -Wall -Wextra
@@ -7,13 +7,13 @@ DEBUG = -g
 
 TESTS = tests/tests.cpp
 APP = src/app.cpp
-OBJS = lib/libglfw3.a src/*.c 
+OBJS = src/*.c lib/libglfw3.a
 
 INCS = -I/usr/include/
-LIB_PATH = -L/usr/lib/
-LIBS = -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lstdc++
+LIB_PATH = -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu
+LIBS = -lX11 -lGL -lglfw -lXrandr -lXi -lXxf86vm -lpthread -ldl -lXcursor -lXinerama -lstdc++
 
-FLAGS = $(WARNINGS) $(DEBUG)
+FLAGS = $(WARNINGS) $(DEBUG) -std=c++11
 LDLIBS = $(LIB_PATH) $(LIBS)
 
 .PHONY: all clean install debug run lrun test vtest
@@ -31,11 +31,11 @@ tests: $(TESTS) $(OBJS)
 
 debug: $(APP) $(OBJS)
 	@echo "Building target" $@ "in DEBUG mode..." 
-	$(CC) $(FLAGS) -DDEBUG $(APP) $(OBJS) $(LDLIBS) -o bin/app
+	$(CC) $(FLAGS) -o bin/app -DDEBUG $(APP) $(OBJS) $(LDLIBS)
 
 app: $(APP) $(OBJS)
 	@echo "Building target" $@ "..." 
-	$(CC) $(FLAGS) $(APP) $(OBJS) $(LDLIBS) -o bin/$@
+	$(CC) $(FLAGS) -o bin/app -DNDEBUG $(APP) $(OBJS) $(LDLIBS)
 
 test: bin/tests
 	@echo "Running test suite with all tests..."
