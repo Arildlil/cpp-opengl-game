@@ -2,6 +2,8 @@
 #include "../include/GLFW/glfw3.h"
 
 #include "window.h"
+#include "vertex.h"
+#include "shader.h"
 
 #include <vector>
 #include <iostream>
@@ -9,48 +11,6 @@
 #include <string>
 
 
-
-std::vector<std::string>& load_shader_files(const std::vector<const char*>& files, 
-    std::vector<std::string>& output) 
-{
-    for (const char* file_name : files) {
-        std::ifstream ifs {file_name};
-        std::string temp {};
-        if (!ifs) {
-            std::cerr << "Invalid file name: " << file_name << std::endl;
-            continue;
-        }
-        
-        std::cout << "Looking at file " << file_name << std::endl;
-        char c;
-        while (ifs.get(c)) {
-            temp += c;
-        }
-        temp += '\0';
-        output.push_back(temp);
-    }
-
-    return output;
-}
-
-bool compile_shader(GLuint shader_id, const std::string& shader_data) {
-    int success {0};
-    constexpr int max_info_len {512};
-    char info_log[max_info_len];
-
-    const GLchar* cdata {shader_data.c_str()};
-    glShaderSource(shader_id, 1, &cdata, NULL);
-    glCompileShader(shader_id);
-    glGetShaderiv(shader_id, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(shader_id, max_info_len, NULL, info_log);
-        std::cerr << "Shader " << shader_id << ": " << info_log << std::endl;
-        glDeleteShader(shader_id);
-        return false;
-    }
-
-    return true;
-}
 
 void cleanup() {
     glfwTerminate();
@@ -74,12 +34,18 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-
+    /*
     float vertices[] = {
         0.5f, 0.5f, 0.0f,   // top right
         0.5f, -0.5f, 0.0f,  // bottom right
         -0.5f, -0.5f, 0.0f, // bottom left
         -0.5f, 0.5f, 0.0f,  // top left
+    };*/
+    Core::Vertex vertices[] = {
+        Core::Vertex{0.5f, 0.5f, 0.0f},
+        Core::Vertex{0.5f, -0.5f, 0.0f},
+        Core::Vertex{-0.5f, -0.5f, 0.0f},
+        Core::Vertex{-0.5f, 0.5f, 0.0f},
     };
 
     unsigned int indices[] = {
@@ -107,43 +73,8 @@ int main(int argc, char **argv) {
     glBindVertexArray(0);
 
 
-
     // Setup shaders
-    const std::vector<const char*> shader_files {"src/minimal.vert", "src/minimal.frag"};
-    std::vector<std::string> shader_contents {};
-    load_shader_files(shader_files, shader_contents);
-
-    // Compiler shaders
-    std::vector<GLuint> shaders {glCreateShader(GL_VERTEX_SHADER), glCreateShader(GL_FRAGMENT_SHADER)};
-    for (int i {0}; i < shaders.size() && i < shader_files.size(); i++) {
-        if (!compile_shader(shaders[i], shader_contents[i])) {
-            cleanup();
-            return -1;   
-        }
-    }
-
-    // Create and link shader program
-    GLuint shader_program {glCreateProgram()};
-    for (GLuint shader_id : shaders) {
-        glAttachShader(shader_program, shader_id);
-    }
-    
-    int success {0};
-    constexpr int max_info_len {512};
-    char info_log[max_info_len];
-    
-    glLinkProgram(shader_program);
-    glGetProgramiv(shader_program, GL_LINK_STATUS, &success);
-    if (!success) {
-        glGetProgramInfoLog(shader_program, max_info_len, NULL, info_log);
-        std::cerr << "Shader linking: " << info_log << std::endl;
-        cleanup();
-        return -1;
-    }
-
-    for (GLuint shader_id : shaders) {
-        glDeleteShader(shader_id);
-    }
+    Core::Shader shader {std::string{"src/minimal"}};
 
     game_window.show();
 
@@ -156,7 +87,7 @@ int main(int argc, char **argv) {
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(shader_program);
+        shader.bind();
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
