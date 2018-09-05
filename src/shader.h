@@ -10,6 +10,9 @@ namespace Core {
             Shader(const std::string& fileName);
             virtual ~Shader();
             void bind();
+            void setWireframeMode();
+            void setSolidMode();
+            long getProgram();
         private:
             long m_shaderProgram;
     };

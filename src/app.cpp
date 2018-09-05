@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cmath>
 
 
 
@@ -74,7 +75,8 @@ int main(int argc, char **argv) {
 
 
     // Setup shaders
-    Core::Shader shader {std::string{"src/minimal"}};
+    Core::Shader shader {std::string{"src/minimal_color"}};
+    shader.bind();
 
     game_window.show();
 
@@ -86,6 +88,12 @@ int main(int argc, char **argv) {
         // rendering
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        // change color
+        float curTime = glfwGetTime();
+        float greenValue = (sin(curTime) / 2.0f) + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(shader.getProgram(), "vecColor");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 
         shader.bind();
         glBindVertexArray(VAO);

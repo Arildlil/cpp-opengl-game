@@ -54,6 +54,18 @@ void Shader::bind() {
     glUseProgram(m_shaderProgram);
 }
 
+void Shader::setWireframeMode() {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+}
+
+void Shader::setSolidMode() {
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+}
+
+long Shader::getProgram() {
+    return m_shaderProgram;
+}
+
 static GLuint createShader(const std::string& shaderCode, GLenum shaderType) {
     int success {0};
     constexpr int max_info_len {512};
