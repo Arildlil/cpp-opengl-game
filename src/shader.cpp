@@ -66,6 +66,10 @@ long Shader::getProgram() {
     return m_shaderProgram;
 }
 
+unsigned int Shader::getTransformLoc(const std::string& transform) {
+    return glGetUniformLocation(m_shaderProgram, transform.c_str());
+}
+
 static GLuint createShader(const std::string& shaderCode, GLenum shaderType) {
     int success {0};
     constexpr int max_info_len {512};

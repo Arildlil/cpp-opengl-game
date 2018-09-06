@@ -13,6 +13,7 @@ namespace Core {
             void setWireframeMode();
             void setSolidMode();
             long getProgram();
+            unsigned int getTransformLoc(const std::string& transform);
         private:
             long m_shaderProgram;
     };

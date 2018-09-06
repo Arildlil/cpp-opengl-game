@@ -1,6 +1,10 @@
 #include "../include/glad/glad.h"
 #include "../include/GLFW/glfw3.h"
 
+#include <../include/glm/glm.hpp>
+#include <../include/glm/gtc/matrix_transform.hpp>
+#include <../include/glm/gtc/type_ptr.hpp>
+
 #include "window.h"
 #include "vertex.h"
 #include "shader.h"
@@ -42,16 +46,21 @@ int main(int argc, char **argv) {
         -0.5f, -0.5f, 0.0f, // bottom left
         -0.5f, 0.5f, 0.0f,  // top left
     };*/
+    /*
     Core::Vertex vertices[] = {
         Core::Vertex{0.5f, 0.5f, 0.0f},
         Core::Vertex{0.5f, -0.5f, 0.0f},
         Core::Vertex{-0.5f, -0.5f, 0.0f},
         Core::Vertex{-0.5f, 0.5f, 0.0f},
+    };*/
+    Core::Vertex vertices[] = {
+        {0.0f, 0.5f, 0.0f},
+        {0.5f, -0.5f, 0.5f},
+        {-0.5f, -0.5f, 0.5f},
     };
 
     unsigned int indices[] = {
-        0, 1, 3,    // first triangle
-        1, 2, 3,    // second triangle
+        0, 1, 2,    // first triangle
     };
 
     // Prepare data for rendering this object.
@@ -75,7 +84,7 @@ int main(int argc, char **argv) {
 
 
     // Setup shaders
-    Core::Shader shader {std::string{"src/minimal_color"}};
+    Core::Shader shader {std::string{"src/current"}};
     shader.bind();
 
     game_window.show();
@@ -89,13 +98,24 @@ int main(int argc, char **argv) {
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        shader.bind();
+
         // change color
         float curTime = glfwGetTime();
         float greenValue = (sin(curTime) / 2.0f) + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(shader.getProgram(), "vecColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        int vertexColorLoc = shader.getTransformLoc("uColor");
+        glUniform4f(vertexColorLoc, 0.0f, greenValue, 0.0f, 1.0f);
 
-        shader.bind();
+        /*
+        // translation
+        glm::mat4 trans;
+        trans = glm::translate(trans, glm::vec3(sin(curTime) / 2.0f, cos(curTime) / 2.0f, 0.0f));
+        trans = glm::scale(trans, glm::vec3(sin(curTime) / 4.0f + 1.0f, sin(curTime) / 4.0f + 1.0f, 1.0f));
+        */
+        glm::mat4 trans;
+        unsigned int transLoc = shader.getTransformLoc("uTrans");
+        glUniformMatrix4fv(transLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
