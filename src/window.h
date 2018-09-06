@@ -14,6 +14,8 @@ namespace Core {
         virtual ~Window();
         void show();
         GLFWwindow* get_window() const { return window; }
+        int getWidth() const { return width; }
+        int getHeight() const { return height; }
     private:
         int width;
         int height;

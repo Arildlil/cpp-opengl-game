@@ -3,6 +3,10 @@
 #include "../include/glad/glad.h"
 #include "../include/GLFW/glfw3.h"
 
+#include <../include/glm/glm.hpp>
+#include <../include/glm/gtc/matrix_transform.hpp>
+#include <../include/glm/gtc/type_ptr.hpp>
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -68,6 +72,16 @@ long Shader::getProgram() {
 
 unsigned int Shader::getTransformLoc(const std::string& transform) {
     return glGetUniformLocation(m_shaderProgram, transform.c_str());
+}
+
+void Shader::setVec4(const std::string& trans, glm::vec4 vec) {
+    unsigned int transLoc = getTransformLoc(trans);
+    glUniform4f(transLoc, vec.x, vec.y, vec.z, vec.w);
+}
+
+void Shader::setMat4(const std::string& trans, glm::mat4 mat) {
+    unsigned int transLoc = getTransformLoc(trans);
+    glUniformMatrix4fv(transLoc, 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 static GLuint createShader(const std::string& shaderCode, GLenum shaderType) {
