@@ -8,6 +8,7 @@
 #include "window.h"
 #include "vertex.h"
 #include "shader.h"
+#include "camera.h"
 
 #include <vector>
 #include <iostream>
@@ -15,24 +16,23 @@
 #include <string>
 #include <cmath>
 
-static float x = 0;
-static float z = 0;
+
 
 void cleanup() {
     glfwTerminate();
 }
 
-void process_input(Core::Window& window) {
+void process_input(Core::Window& window, Core::Camera& camera) {
     if (glfwGetKey(window.get_window(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window.get_window(), true);
     } if (glfwGetKey(window.get_window(), GLFW_KEY_S) == GLFW_PRESS) {
-        z -= 0.02;
+        camera.moveBackward();
     } if (glfwGetKey(window.get_window(), GLFW_KEY_W) == GLFW_PRESS) {
-        z += 0.02;
+        camera.moveForward();
     } if (glfwGetKey(window.get_window(), GLFW_KEY_A) == GLFW_PRESS) {
-        x += 0.02;
+        camera.moveLeft();
     } if (glfwGetKey(window.get_window(), GLFW_KEY_D) == GLFW_PRESS) {
-        x -= 0.02;
+        camera.moveRight();
     }
 }
 
@@ -103,12 +103,14 @@ int main(int argc, char **argv) {
     Core::Shader shader {std::string{"src/current"}};
     shader.bind();
     
+    Core::Camera camera {};
+
     gameWindow.show();
 
     GLFWwindow* main_window {gameWindow.get_window()};
     while (!glfwWindowShouldClose(main_window)) {
         // input handling
-        process_input(gameWindow);
+        process_input(gameWindow, camera);
 
         // rendering
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
@@ -120,17 +122,20 @@ int main(int argc, char **argv) {
 
         shader.bind();
 
+        camera.update();
+
         // change color
         float curTime = glfwGetTime();
         float greenValue = (sin(curTime) / 2.0f) + 0.5f;
         shader.setVec4("uColor", glm::vec4(0.0f, greenValue, 0.0f, 1.0f));
 
         glm::mat4 modelMatrix;
-        modelMatrix = glm::translate(modelMatrix, glm::vec3(x, 0.0f, z));
+        modelMatrix = glm::translate(modelMatrix, glm::vec3(1.0f, 0.0f, 0.0f));
         shader.setMat4("uModel", modelMatrix);
 
         glm::mat4 viewMatrix;
-        viewMatrix = glm::translate(viewMatrix, glm::vec3(0.0f, 0.0f, -3.0f));
+        //viewMatrix = glm::translate(viewMatrix, glm::vec3(0.0f, 0.0f, -3.0f));
+        viewMatrix = camera.getViewMatrix();
         shader.setMat4("uView", viewMatrix);
 
         glm::mat4 projMatrix;

@@ -7,7 +7,7 @@ DEBUG = -g
 
 TESTS = tests/tests.cpp
 APP = src/app.cpp
-OBJS = src/*.c lib/libglfw3.a src/window.cpp src/vertex.cpp src/shader.cpp
+OBJS = src/*.c lib/libglfw3.a src/window.cpp src/vertex.cpp src/shader.cpp src/camera.cpp
 
 INCS = -I/usr/include/
 LIB_PATH = -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu
