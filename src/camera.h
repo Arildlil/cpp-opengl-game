@@ -15,6 +15,8 @@ namespace Core {
             void moveBackward();
             void moveRight();
             void moveLeft();
+            void rotateRight();
+            void rotateLeft();
         private:
             glm::vec3 m_cameraPos;
             glm::vec3 m_cameraFront;
@@ -22,7 +24,10 @@ namespace Core {
             float m_baseCameraSpeed;
             float m_cameraSpeed;
             float m_lastFrame;
+            float m_pitch;
+            float m_yaw;
 
+            void rotate(float delta_yaw);
             void updateSpeed();
     };
 };

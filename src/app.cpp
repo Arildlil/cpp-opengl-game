@@ -33,6 +33,10 @@ void process_input(Core::Window& window, Core::Camera& camera) {
         camera.moveLeft();
     } if (glfwGetKey(window.get_window(), GLFW_KEY_D) == GLFW_PRESS) {
         camera.moveRight();
+    } if (glfwGetKey(window.get_window(), GLFW_KEY_Q) == GLFW_PRESS) {
+        camera.rotateLeft();
+    } if (glfwGetKey(window.get_window(), GLFW_KEY_E) == GLFW_PRESS) {
+        camera.rotateRight();
     }
 }
 
