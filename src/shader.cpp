@@ -1,12 +1,5 @@
 #include "shader.h"
 
-#include "../include/glad/glad.h"
-#include "../include/GLFW/glfw3.h"
-
-#include <../include/glm/glm.hpp>
-#include <../include/glm/gtc/matrix_transform.hpp>
-#include <../include/glm/gtc/type_ptr.hpp>
-
 #include <iostream>
 #include <fstream>
 #include <string>

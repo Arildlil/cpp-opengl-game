@@ -1,11 +1,5 @@
 #include "camera.h"
 
-#include "../include/GLFW/glfw3.h"
-
-#include <../include/glm/glm.hpp>
-#include <../include/glm/gtc/matrix_transform.hpp>
-#include <../include/glm/gtc/type_ptr.hpp>
-
 #include <iostream>
 
 using namespace Core;

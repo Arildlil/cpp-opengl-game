@@ -1,7 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <../include/glm/glm.hpp>
+#include "gl_header.h"
 
 namespace Core {
     class Camera {
