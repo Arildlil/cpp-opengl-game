@@ -152,7 +152,7 @@ int main(int argc, char **argv) {
         float curTime = glfwGetTime();
         float lampPosX = (sin(curTime) * 3.0f);
         float lampPosZ = (cos(curTime) * 3.0f);
-        lampPos = glm::vec3(lampPosX, 1.0f, lampPosZ);
+        lampPos = glm::vec3(lampPosX, 0.5f, lampPosZ);
         objectShader.setVec3("uLightPos", lampPos);
         //objectShader.setVec3("uLightPos", lampPos);
         objectShader.setVec3("uViewPos", camera.getViewPos());

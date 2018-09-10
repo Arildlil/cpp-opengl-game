@@ -19,10 +19,17 @@ void main() {
     // diffuse
     vec3 norm = normalize(normal);
     vec3 lightDir = normalize(uLightPos - fragPos); // light direction normalized
-    float diff = max(dot(norm, lightDir), 0.0);     // light impact, angle
-    vec3 diffuseResult = diff * lightColor;         // final diffuse effect
+    float diffuse = max(dot(norm, lightDir), 0.0);     // light impact, angle
+    vec3 diffuseResult = diffuse * lightColor;         // final diffuse effect
+    
+    // specular
+    float specularStrength = 0.5;
+    vec3 viewDir = normalize(uViewPos - fragPos);    
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float specular = pow( max ( dot(viewDir, reflectDir), 0.0), 32);
+    vec3 specularResult = specularStrength * specular * lightColor;
 
-    vec3 result = (ambientResult + diffuseResult) * objectColor;
+    vec3 result = (ambientResult + diffuseResult + specularResult) * objectColor;
 
     FragColor = vec4(result, 1.0);
 }
