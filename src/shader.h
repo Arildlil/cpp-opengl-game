@@ -11,11 +11,14 @@ namespace Core {
         public:
             Shader(const std::string& fileName);
             virtual ~Shader();
+            bool operator==(const Shader& other);
+            bool operator!=(const Shader& other);
             void bind();
             void setWireframeMode();
             void setSolidMode();
-            long getProgram();
+            long getProgram() const;
             unsigned int getTransformLoc(const std::string& transform);
+            void setVec3(const std::string& trans, glm::vec3 vec);
             void setVec4(const std::string& trans, glm::vec4 vec);
             void setMat4(const std::string& trans, glm::mat4 mat);
         private:

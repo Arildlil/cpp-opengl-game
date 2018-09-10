@@ -47,6 +47,14 @@ Shader::~Shader() {
     glDeleteProgram(m_shaderProgram);
 }
 
+bool Shader::operator==(const Shader& other) {
+    return (m_shaderProgram == other.getProgram());
+}
+
+bool Shader::operator!=(const Shader& other) {
+    return !(m_shaderProgram == other.getProgram());
+}
+
 void Shader::bind() {
     glUseProgram(m_shaderProgram);
 }
@@ -59,7 +67,7 @@ void Shader::setSolidMode() {
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
-long Shader::getProgram() {
+long Shader::getProgram() const {
     return m_shaderProgram;
 }
 
@@ -67,8 +75,13 @@ unsigned int Shader::getTransformLoc(const std::string& transform) {
     return glGetUniformLocation(m_shaderProgram, transform.c_str());
 }
 
+void Shader::setVec3(const std::string& trans, glm::vec3 vec) {
+    unsigned int transLoc {getTransformLoc(trans)};
+    glUniform3f(transLoc, vec.x, vec.y, vec.z);
+}
+
 void Shader::setVec4(const std::string& trans, glm::vec4 vec) {
-    unsigned int transLoc = getTransformLoc(trans);
+    unsigned int transLoc {getTransformLoc(trans)};
     glUniform4f(transLoc, vec.x, vec.y, vec.z, vec.w);
 }
 

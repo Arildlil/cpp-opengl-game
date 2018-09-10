@@ -48,6 +48,9 @@ int main(int argc, char **argv) {
         return -1;
     }
 
+    glEnable(GL_DEPTH_TEST);
+
+    /*
     std::vector<Core::Vertex> verticesPyramid {
         {0.0f, 0.5f, 0.0f},     // top
         {0.5f, -0.5f, 0.5f},    // front right
@@ -63,19 +66,69 @@ int main(int argc, char **argv) {
         0, 3, 4,    // back triangle
         2, 3, 4,    // bot triangle left
         1, 2, 4,    // bot triangle right
+    };*/
+    std::vector<Core::Vertex> verticesBox {
+        {-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f},
+        {0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
+        {0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
+        {0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
+        {-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
+        {-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
+
+        {-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+        {0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+        {0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+        {0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+        {-0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+        {-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+
+        {-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f},
+        {-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f},
+        {-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f},
+        {-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f},
+        {-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f},
+        {-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f},
+
+        {0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f},
+        {0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f},
+        {0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f},
+        {0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f},
+        {0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f},
+        {0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f},
+
+        {-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f},
+        {0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f},
+        {0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f},
+        {0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f},
+        {-0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f},
+        {-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f},
+
+        {-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f},
+        {0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f},
+        {0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f},
+        {0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f},
+        {-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f},
+        {-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f}
     };
 
+    std::vector<unsigned int> emptyIndices {};
 
-    // Setup shaders
+
+    // Setup objects
     Core::Shader objectShader {std::string{"src/shaders/current"}};
-    Core::Shader lampShader {std::string{"src/shaders/current_lamp"}};
-    
+    Core::Shader lampShader {std::string{"src/shaders/current"}};
+
     Core::Camera camera {};
 
-    Core::Mesh lamp {verticesPyramid, indicesPyramid};
-    Core::Mesh mesh {verticesPyramid, indicesPyramid};
+    Core::Mesh lamp {verticesBox, emptyIndices};
+    Core::Mesh mesh {verticesBox, emptyIndices};
 
     gameWindow.show();
+
+    glm::vec3 objectColor {glm::vec3(1.0f, 0.5f, 0.31f)};
+    glm::vec3 lightColor {glm::vec3(1.0f, 1.0f, 1.0f)};
+    glm::vec3 lampPos {glm::vec3(1.2f, 1.0f, 2.0f)};
+
 
     GLFWwindow* main_window {gameWindow.get_window()};
     while (!glfwWindowShouldClose(main_window)) {
@@ -84,35 +137,26 @@ int main(int argc, char **argv) {
 
         // rendering
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // z-buffer
-        glEnable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
 
         camera.update();
 
+
         // change color
-        objectShader.bind();
-
-        float curTime = glfwGetTime();
-        float greenValue = (sin(curTime) / 2.0f) + 0.5f;
-        objectShader.setVec4("uObjectColor", glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
-        objectShader.setVec4("uLightColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-
-        glm::mat4 modelMatrix;
+        glm::mat4 modelMatrix {};
         modelMatrix = glm::translate(modelMatrix, glm::vec3(1.0f, 0.0f, 0.0f));
         objectShader.setMat4("uModel", modelMatrix);
-
-        glm::mat4 viewMatrix;
-        //viewMatrix = glm::translate(viewMatrix, glm::vec3(0.0f, 0.0f, -3.0f));
+        objectShader.setVec3("uObjectColor", objectColor);
+        objectShader.setVec3("uLightColor", lightColor);
+        objectShader.setVec3("uLightPos", lampPos);
+        
+        glm::mat4 viewMatrix, projMatrix;
         viewMatrix = camera.getViewMatrix();
-        objectShader.setMat4("uView", viewMatrix);
-
-        glm::mat4 projMatrix;
         projMatrix = glm::perspective(glm::radians(45.0f), 
             (float)gameWindow.getWidth() / (float)gameWindow.getHeight(), 0.1f, 100.0f);
+            
+        objectShader.setMat4("uView", viewMatrix);
         objectShader.setMat4("uProj", projMatrix);
 
         mesh.bind();
@@ -120,13 +164,14 @@ int main(int argc, char **argv) {
         mesh.unbind();
 
 
+        // Prepare lamp shader
         lampShader.bind();
 
-        glm::vec3 lampPos {glm::vec3(1.2f, 1.0f, 2.0f)};
         glm::mat4 lampModelMatrix {};
         lampModelMatrix = glm::translate(lampModelMatrix, lampPos);
         lampModelMatrix = glm::scale(lampModelMatrix, glm::vec3(0.2f));
         lampShader.setMat4("uModel", lampModelMatrix);
+
         lampShader.setMat4("uView", viewMatrix);
         lampShader.setMat4("uProj", projMatrix);
 

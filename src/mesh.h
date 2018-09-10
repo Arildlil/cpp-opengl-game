@@ -4,6 +4,7 @@
 #include "gl_header.h"
 
 #include "vertex.h"
+#include "shader.h"
 
 #include <vector>
 
