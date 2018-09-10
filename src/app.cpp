@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    std::vector<Core::Vertex> vertices {
+    std::vector<Core::Vertex> verticesPyramid {
         {0.0f, 0.5f, 0.0f},     // top
         {0.5f, -0.5f, 0.5f},    // front right
         {-0.5f, -0.5f, 0.5f},   // front left
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
         {0.5f, -0.5f, -0.5f},   // back right
     };
 
-    std::vector<unsigned int> indices {
+    std::vector<unsigned int> indicesPyramid {
         0, 1, 2,    // front triangle
         0, 2, 3,    // left triangle
         0, 1, 4,    // right triangle
@@ -67,12 +67,13 @@ int main(int argc, char **argv) {
 
 
     // Setup shaders
-    Core::Shader shader {std::string{"src/current"}};
-    shader.bind();
+    Core::Shader objectShader {std::string{"src/shaders/current"}};
+    Core::Shader lampShader {std::string{"src/shaders/current_lamp"}};
     
     Core::Camera camera {};
 
-    Core::Mesh mesh {vertices, indices};
+    Core::Mesh lamp {verticesPyramid, indicesPyramid};
+    Core::Mesh mesh {verticesPyramid, indicesPyramid};
 
     gameWindow.show();
 
@@ -88,33 +89,50 @@ int main(int argc, char **argv) {
         // z-buffer
         glEnable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        shader.bind();
+        
 
         camera.update();
 
         // change color
+        objectShader.bind();
+
         float curTime = glfwGetTime();
         float greenValue = (sin(curTime) / 2.0f) + 0.5f;
-        shader.setVec4("uColor", glm::vec4(0.0f, greenValue, 0.0f, 1.0f));
+        objectShader.setVec4("uObjectColor", glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
+        objectShader.setVec4("uLightColor", glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
 
         glm::mat4 modelMatrix;
         modelMatrix = glm::translate(modelMatrix, glm::vec3(1.0f, 0.0f, 0.0f));
-        shader.setMat4("uModel", modelMatrix);
+        objectShader.setMat4("uModel", modelMatrix);
 
         glm::mat4 viewMatrix;
         //viewMatrix = glm::translate(viewMatrix, glm::vec3(0.0f, 0.0f, -3.0f));
         viewMatrix = camera.getViewMatrix();
-        shader.setMat4("uView", viewMatrix);
+        objectShader.setMat4("uView", viewMatrix);
 
         glm::mat4 projMatrix;
         projMatrix = glm::perspective(glm::radians(45.0f), 
             (float)gameWindow.getWidth() / (float)gameWindow.getHeight(), 0.1f, 100.0f);
-        shader.setMat4("uProj", projMatrix);
+        objectShader.setMat4("uProj", projMatrix);
 
         mesh.bind();
         mesh.draw();
         mesh.unbind();
+
+
+        lampShader.bind();
+
+        glm::vec3 lampPos {glm::vec3(1.2f, 1.0f, 2.0f)};
+        glm::mat4 lampModelMatrix {};
+        lampModelMatrix = glm::translate(lampModelMatrix, lampPos);
+        lampModelMatrix = glm::scale(lampModelMatrix, glm::vec3(0.2f));
+        lampShader.setMat4("uModel", lampModelMatrix);
+        lampShader.setMat4("uView", viewMatrix);
+        lampShader.setMat4("uProj", projMatrix);
+
+        lamp.bind();
+        lamp.draw();
+        lamp.unbind();
 
         // check/call events and swap buffers
         glfwSwapBuffers(main_window);
