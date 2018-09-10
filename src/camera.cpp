@@ -20,6 +20,10 @@ void Camera::update() {
     updateSpeed();
 }
 
+glm::vec3 Camera::getViewPos() {
+    return m_cameraPos;
+}
+
 glm::mat4 Camera::getViewMatrix() {
     return glm::lookAt(m_cameraPos, m_cameraPos + m_cameraFront, m_cameraUp);
 }

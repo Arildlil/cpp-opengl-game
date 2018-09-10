@@ -8,6 +8,7 @@ in vec3 fragPos;
 out vec4 FragColor;
 
 uniform vec3 uLightPos;
+uniform vec3 uViewPos;
 
 void main() {
     // ambient

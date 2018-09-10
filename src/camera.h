@@ -10,6 +10,7 @@ namespace Core {
             Camera(glm::vec3 start);
             virtual ~Camera();
             void update();
+            glm::vec3 getViewPos();
             glm::mat4 getViewMatrix();
             void moveForward();
             void moveBackward();

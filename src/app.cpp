@@ -149,8 +149,14 @@ int main(int argc, char **argv) {
         objectShader.setMat4("uModel", modelMatrix);
         objectShader.setVec3("uObjectColor", objectColor);
         objectShader.setVec3("uLightColor", lightColor);
+        float curTime = glfwGetTime();
+        float lampPosX = (sin(curTime) * 3.0f);
+        float lampPosZ = (cos(curTime) * 3.0f);
+        lampPos = glm::vec3(lampPosX, 1.0f, lampPosZ);
         objectShader.setVec3("uLightPos", lampPos);
-        
+        //objectShader.setVec3("uLightPos", lampPos);
+        objectShader.setVec3("uViewPos", camera.getViewPos());
+
         glm::mat4 viewMatrix, projMatrix;
         viewMatrix = camera.getViewMatrix();
         projMatrix = glm::perspective(glm::radians(45.0f), 
