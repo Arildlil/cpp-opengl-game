@@ -15,7 +15,7 @@ namespace Core {
             virtual ~Mesh();
             void bind();
             void unbind();
-            void draw();
+            void draw() const;
         private:
             GLuint m_VBO, m_VAO, m_EBO;
             std::vector<Core::Vertex> m_vertices;

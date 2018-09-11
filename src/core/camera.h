@@ -24,7 +24,7 @@ namespace Core {
             glm::vec3 m_cameraUp;
             float m_baseCameraSpeed;
             float m_cameraSpeed;
-            float m_lastFrame;
+            double m_lastFrame;
             float m_pitch;
             float m_yaw;
 

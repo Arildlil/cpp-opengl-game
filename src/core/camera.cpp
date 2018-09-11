@@ -62,8 +62,8 @@ void Camera::rotate(float delta_yaw) {
 }
 
 void Camera::updateSpeed() {
-    float currentFrame {glfwGetTime()};
-    float deltaTime {currentFrame - m_lastFrame};
+    double currentFrame {glfwGetTime()};
+    double deltaTime {currentFrame - m_lastFrame};
     m_lastFrame = currentFrame;
     m_cameraSpeed = m_baseCameraSpeed * deltaTime;
 }

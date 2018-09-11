@@ -45,7 +45,7 @@ void Mesh::unbind() {
     glBindVertexArray(0);
 }
 
-void Mesh::draw() {
+void Mesh::draw() const {
     //glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
     glDrawArrays(GL_TRIANGLES, 0, m_vertices.size());
 }

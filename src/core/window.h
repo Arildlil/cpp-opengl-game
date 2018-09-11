@@ -1,8 +1,8 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "../include/glad/glad.h"
-#include "../include/GLFW/glfw3.h"
+#include "../../include/glad/glad.h"
+#include "../../include/GLFW/glfw3.h"
 
 #include <string>
 #include <iostream>

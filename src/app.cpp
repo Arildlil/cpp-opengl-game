@@ -1,10 +1,13 @@
-#include "gl_header.h"
+#include "core/gl_header.h"
 
-#include "window.h"
-#include "vertex.h"
-#include "shader.h"
-#include "camera.h"
-#include "mesh.h"
+#include "core/window.h"
+#include "core/vertex.h"
+#include "core/shader.h"
+#include "core/camera.h"
+#include "core/mesh.h"
+
+#include "game/entity.h"
+#include "game/gamestate.h"
 
 #include <vector>
 #include <iostream>
@@ -123,6 +126,8 @@ int main(int argc, char **argv) {
     Core::Mesh lamp {verticesBox, emptyIndices};
     Core::Mesh mesh {verticesBox, emptyIndices};
 
+    
+
     gameWindow.show();
 
     glm::vec3 objectColor {glm::vec3(1.0f, 0.5f, 0.31f)};
@@ -149,9 +154,9 @@ int main(int argc, char **argv) {
         objectShader.setMat4("uModel", modelMatrix);
         objectShader.setVec3("uObjectColor", objectColor);
         objectShader.setVec3("uLightColor", lightColor);
-        float curTime = glfwGetTime();
-        float lampPosX = (sin(curTime) * 3.0f);
-        float lampPosZ = (cos(curTime) * 3.0f);
+        double curTime = glfwGetTime();
+        double lampPosX = (sin(curTime) * 3.0f);
+        double lampPosZ = (cos(curTime) * 3.0f);
         lampPos = glm::vec3(lampPosX, 0.5f, lampPosZ);
         objectShader.setVec3("uLightPos", lampPos);
         //objectShader.setVec3("uLightPos", lampPos);
