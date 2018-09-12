@@ -5,6 +5,7 @@
 #include "core/shader.h"
 #include "core/camera.h"
 #include "core/mesh.h"
+#include "core/material.h"
 
 #include "game/entity.h"
 #include "game/gamestaterunning.h"
@@ -128,6 +129,19 @@ int main(int argc, char **argv) {
     Core::Mesh lamp {verticesBox, emptyIndices};
     Core::Mesh mesh {verticesBox, emptyIndices};
 
+    Core::Material materialMat {
+        glm::vec3(1.0f, 0.5f, 0.31f),
+        glm::vec3(1.0f, 0.5f, 0.31f),
+        glm::vec3(0.5f, 0.5f, 0.5f),
+        32.0f
+    };
+    Core::Material lightMat {
+        glm::vec3(0.2f, 0.2f, 0.2f) * glm::vec3(0.5f),
+        glm::vec3(0.5f, 0.5f, 0.5f) * glm::vec3(0.5f),
+        glm::vec3(1.0f, 1.0f, 1.0f),
+        0.0f
+    };
+
     //std::stack<Game::GameState&> gameState {};
     Game::GameStateRunning gameStateRunning {gameWindow, camera};
     //gameState.push(gameStateRunning);
@@ -138,15 +152,6 @@ int main(int argc, char **argv) {
     glm::vec3 objectColor {glm::vec3(1.0f, 0.5f, 0.31f)};
     glm::vec3 lightColor {glm::vec3(1.0f, 1.0f, 1.0f)};
     glm::vec3 lampPos {glm::vec3(1.2f, 1.0f, 2.0f)};
-
-    glm::vec3 materialAmbient {glm::vec3(1.0f, 0.5f, 0.31f)};
-    glm::vec3 materialDiffuse {glm::vec3(1.0f, 0.5f, 0.31f)};
-    glm::vec3 materialSpecular {glm::vec3(0.5f, 0.5f, 0.5f)};
-    float materialShininess {32.0f};
-
-    glm::vec3 lightAmbient {glm::vec3(0.2f, 0.2f, 0.2f) * glm::vec3(0.5f)};
-    glm::vec3 lightDiffuse {glm::vec3(0.5f, 0.5f, 0.5f) * glm::vec3(0.5f)};
-    glm::vec3 lightSpecular {glm::vec3(1.0f, 1.0f, 1.0f)};
 
 
     GLFWwindow* main_window {gameWindow.get_window()};
@@ -168,22 +173,21 @@ int main(int argc, char **argv) {
         glm::mat4 modelMatrix {};
         modelMatrix = glm::translate(modelMatrix, glm::vec3(1.0f, 0.0f, 0.0f));
         objectShader.setMat4("uModel", modelMatrix);
-        objectShader.setVec3("uObjectColor", objectColor);
-        //objectShader.setVec3("uLightColor", lightColor);
-        objectShader.setVec3("material.ambient", materialAmbient);
-        objectShader.setVec3("material.diffuse", materialDiffuse);
-        objectShader.setVec3("material.specular", materialSpecular);
-        objectShader.setFloat("material.shininess", materialShininess);
-        objectShader.setVec3("light.ambient", lightAmbient);
-        objectShader.setVec3("light.diffuse", lightDiffuse);
-        objectShader.setVec3("light.specular", lightSpecular);
+        
+        objectShader.setVec3("material.ambient", materialMat.ambient());
+        objectShader.setVec3("material.diffuse", materialMat.diffuse());
+        objectShader.setVec3("material.specular", materialMat.specular());
+        objectShader.setFloat("material.shininess", materialMat.shininess());
+        objectShader.setVec3("light.ambient", lightMat.ambient());
+        objectShader.setVec3("light.diffuse", lightMat.diffuse());
+        objectShader.setVec3("light.specular", lightMat.specular());
         objectShader.setVec3("light.pos", lampPos);
+
         double curTime = glfwGetTime();
         double lampPosX = (sin(curTime) * 3.0f);
         double lampPosZ = (cos(curTime) * 3.0f);
         lampPos = glm::vec3(lampPosX, 0.5f, lampPosZ);
-        objectShader.setVec3("uLightPos", lampPos);
-        //objectShader.setVec3("uLightPos", lampPos);
+
         objectShader.setVec3("uViewPos", camera.getViewPos());
 
         glm::mat4 viewMatrix, projMatrix;
