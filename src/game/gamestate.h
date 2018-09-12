@@ -3,12 +3,13 @@
 
 namespace Game {
     class GameState {
-        GameState();
-        virtual ~GameState();
-        virtual void handleInput() = 0;
-        virtual void handleEvent() = 0;
-        virtual void update(float deltaTime) = 0;
-        virtual void render() = 0;
+        public:
+            GameState() {};
+            virtual ~GameState() {};
+            virtual void handleInput() = 0;
+            virtual void handleEvent() = 0;
+            virtual void update(float deltaTime) = 0;
+            virtual void render() = 0;
     };
 };
 

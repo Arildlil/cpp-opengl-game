@@ -75,6 +75,11 @@ unsigned int Shader::getTransformLoc(const std::string& transform) {
     return glGetUniformLocation(m_shaderProgram, transform.c_str());
 }
 
+void Shader::setFloat(const std::string& trans, float flt) {
+    unsigned int transLoc {getTransformLoc(trans)};
+    glUniform1f(transLoc, flt);
+}
+
 void Shader::setVec3(const std::string& trans, glm::vec3 vec) {
     unsigned int transLoc {getTransformLoc(trans)};
     glUniform3f(transLoc, vec.x, vec.y, vec.z);

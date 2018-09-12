@@ -7,13 +7,14 @@
 #include "core/mesh.h"
 
 #include "game/entity.h"
-#include "game/gamestate.h"
+#include "game/gamestaterunning.h"
 
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <cmath>
+#include <stack>
 
 
 
@@ -21,7 +22,8 @@ void cleanup() {
     glfwTerminate();
 }
 
-void process_input(Core::Window& window, Core::Camera& camera) {
+/*
+void process_input(Core::Window& window, Core::Camera& camera, Game::GameState& state) {
     if (glfwGetKey(window.get_window(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window.get_window(), true);
     } if (glfwGetKey(window.get_window(), GLFW_KEY_S) == GLFW_PRESS) {
@@ -37,7 +39,7 @@ void process_input(Core::Window& window, Core::Camera& camera) {
     } if (glfwGetKey(window.get_window(), GLFW_KEY_E) == GLFW_PRESS) {
         camera.rotateRight();
     }
-}
+}*/
 
 int main(int argc, char **argv) {
     
@@ -126,7 +128,10 @@ int main(int argc, char **argv) {
     Core::Mesh lamp {verticesBox, emptyIndices};
     Core::Mesh mesh {verticesBox, emptyIndices};
 
-    
+    //std::stack<Game::GameState&> gameState {};
+    Game::GameStateRunning gameStateRunning {gameWindow, camera};
+    //gameState.push(gameStateRunning);
+
 
     gameWindow.show();
 
@@ -134,18 +139,29 @@ int main(int argc, char **argv) {
     glm::vec3 lightColor {glm::vec3(1.0f, 1.0f, 1.0f)};
     glm::vec3 lampPos {glm::vec3(1.2f, 1.0f, 2.0f)};
 
+    glm::vec3 materialAmbient {glm::vec3(1.0f, 0.5f, 0.31f)};
+    glm::vec3 materialDiffuse {glm::vec3(1.0f, 0.5f, 0.31f)};
+    glm::vec3 materialSpecular {glm::vec3(0.5f, 0.5f, 0.5f)};
+    float materialShininess {32.0f};
+
+    glm::vec3 lightAmbient {glm::vec3(0.2f, 0.2f, 0.2f) * glm::vec3(0.5f)};
+    glm::vec3 lightDiffuse {glm::vec3(0.5f, 0.5f, 0.5f) * glm::vec3(0.5f)};
+    glm::vec3 lightSpecular {glm::vec3(1.0f, 1.0f, 1.0f)};
+
 
     GLFWwindow* main_window {gameWindow.get_window()};
     while (!glfwWindowShouldClose(main_window)) {
         // input handling
-        process_input(gameWindow, camera);
+        //process_input(gameWindow, camera, gameState.top());
 
         // rendering
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-
-        camera.update();
+        //gameState.top().handleInput();
+        gameStateRunning.handleInput();
+        //gameState.top().update(0.0f);
+        gameStateRunning.update(0.0f);
 
 
         // change color
@@ -153,7 +169,15 @@ int main(int argc, char **argv) {
         modelMatrix = glm::translate(modelMatrix, glm::vec3(1.0f, 0.0f, 0.0f));
         objectShader.setMat4("uModel", modelMatrix);
         objectShader.setVec3("uObjectColor", objectColor);
-        objectShader.setVec3("uLightColor", lightColor);
+        //objectShader.setVec3("uLightColor", lightColor);
+        objectShader.setVec3("material.ambient", materialAmbient);
+        objectShader.setVec3("material.diffuse", materialDiffuse);
+        objectShader.setVec3("material.specular", materialSpecular);
+        objectShader.setFloat("material.shininess", materialShininess);
+        objectShader.setVec3("light.ambient", lightAmbient);
+        objectShader.setVec3("light.diffuse", lightDiffuse);
+        objectShader.setVec3("light.specular", lightSpecular);
+        objectShader.setVec3("light.pos", lampPos);
         double curTime = glfwGetTime();
         double lampPosX = (sin(curTime) * 3.0f);
         double lampPosZ = (cos(curTime) * 3.0f);
