@@ -18,6 +18,13 @@ uniform Material material;
 uniform Light light;
 uniform vec3 uViewPos;
 
+uniform sampler2D texture_diffuse1;
+uniform sampler2D texture_diffuse2;
+uniform sampler2D texture_diffuse3;
+uniform sampler2D texture_specular1;
+uniform sampler2D texture_specular2;
+uniform sampler2D texture_specular3;
+
 in vec3 normal;
 in vec3 fragPos;
 

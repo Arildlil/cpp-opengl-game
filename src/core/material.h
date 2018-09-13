@@ -13,7 +13,7 @@ namespace Core {
             const glm::vec3& ambient() const;
             const glm::vec3& diffuse() const;
             const glm::vec3& specular() const;
-            const float shininess() const;
+            float shininess() const;
         private:
             long m_id;
             glm::vec3 m_ambient; 

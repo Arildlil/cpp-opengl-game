@@ -32,6 +32,6 @@ const glm::vec3& Material::specular() const {
     return m_specular;
 }
 
-const float Material::shininess() const {
+float Material::shininess() const {
     return m_shininess;
 }

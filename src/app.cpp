@@ -73,51 +73,53 @@ int main(int argc, char **argv) {
         2, 3, 4,    // bot triangle left
         1, 2, 4,    // bot triangle right
     };*/
+
     std::vector<Core::Vertex> verticesBox {
-        {-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f},
-        {0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
-        {0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
-        {0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
-        {-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
-        {-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f}, 
+        {{-0.5f, -0.5f, -0.5f}, {0.0f,  0.0f, -1.0f}},
+        {{0.5f, -0.5f, -0.5f},  {0.0f,  0.0f, -1.0f}}, 
+        {{0.5f,  0.5f, -0.5f},  {0.0f,  0.0f, -1.0f}}, 
+        {{0.5f,  0.5f, -0.5f},  {0.0f,  0.0f, -1.0f}}, 
+        {{-0.5f,  0.5f, -0.5f},  {0.0f,  0.0f, -1.0f}}, 
+        {{-0.5f, -0.5f, -0.5f},  {0.0f,  0.0f, -1.0f}}, 
 
-        {-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
-        {0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
-        {0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
-        {0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
-        {-0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
-        {-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f},
+        {{-0.5f, -0.5f,  0.5f},  {0.0f,  0.0f, 1.0f}},
+        {{0.5f, -0.5f,  0.5f},  {0.0f,  0.0f, 1.0f}},
+        {{0.5f,  0.5f,  0.5f},  {0.0f,  0.0f, 1.0f}},
+        {{0.5f,  0.5f,  0.5f},  {0.0f,  0.0f, 1.0f}},
+        {{-0.5f,  0.5f,  0.5f},  {0.0f,  0.0f, 1.0f}},
+        {{-0.5f, -0.5f,  0.5f},  {0.0f,  0.0f, 1.0f}},
 
-        {-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f},
-        {-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f},
-        {-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f},
-        {-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f},
-        {-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f},
-        {-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f},
+        {{-0.5f,  0.5f,  0.5f}, {-1.0f,  0.0f,  0.0f}},
+        {{-0.5f,  0.5f, -0.5f}, {-1.0f,  0.0f,  0.0f}},
+        {{-0.5f, -0.5f, -0.5f}, {-1.0f,  0.0f,  0.0f}},
+        {{-0.5f, -0.5f, -0.5f}, {-1.0f,  0.0f,  0.0f}},
+        {{-0.5f, -0.5f,  0.5f}, {-1.0f,  0.0f,  0.0f}},
+        {{-0.5f,  0.5f,  0.5f}, {-1.0f,  0.0f,  0.0f}},
 
-        {0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f},
-        {0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f},
-        {0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f},
-        {0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f},
-        {0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f},
-        {0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f},
+        {{0.5f,  0.5f,  0.5f},  {1.0f,  0.0f,  0.0f}},
+        {{0.5f,  0.5f, -0.5f},  {1.0f,  0.0f,  0.0f}},
+        {{0.5f, -0.5f, -0.5f},  {1.0f,  0.0f,  0.0f}},
+        {{0.5f, -0.5f, -0.5f},  {1.0f,  0.0f,  0.0f}},
+        {{0.5f, -0.5f,  0.5f},  {1.0f,  0.0f,  0.0f}},
+        {{0.5f,  0.5f,  0.5f},  {1.0f,  0.0f,  0.0f}},
 
-        {-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f},
-        {0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f},
-        {0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f},
-        {0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f},
-        {-0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f},
-        {-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f},
+        {{-0.5f, -0.5f, -0.5f},  {0.0f, -1.0f,  0.0f}},
+        {{0.5f, -0.5f, -0.5f},  {0.0f, -1.0f,  0.0f}},
+        {{0.5f, -0.5f,  0.5f},  {0.0f, -1.0f,  0.0f}},
+        {{0.5f, -0.5f,  0.5f},  {0.0f, -1.0f,  0.0f}},
+        {{-0.5f, -0.5f,  0.5f},  {0.0f, -1.0f,  0.0f}},
+        {{-0.5f, -0.5f, -0.5f},  {0.0f, -1.0f,  0.0f}},
 
-        {-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f},
-        {0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f},
-        {0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f},
-        {0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f},
-        {-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f},
-        {-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f}
+        {{-0.5f,  0.5f, -0.5f},  {0.0f,  1.0f,  0.0f}},
+        {{0.5f,  0.5f, -0.5f},  {0.0f,  1.0f,  0.0f}},
+        {{0.5f,  0.5f,  0.5f},  {0.0f,  1.0f,  0.0f}},
+        {{0.5f,  0.5f,  0.5f},  {0.0f,  1.0f,  0.0f}},
+        {{-0.5f,  0.5f,  0.5f},  {0.0f,  1.0f,  0.0f}},
+        {{-0.5f,  0.5f, -0.5f},  {0.0f,  1.0f,  0.0f}}
     };
 
     std::vector<unsigned int> emptyIndices {};
+    std::vector<Core::Texture> emptyTextures {};
 
 
     // Setup objects
@@ -126,8 +128,8 @@ int main(int argc, char **argv) {
 
     Core::Camera camera {};
 
-    Core::Mesh lamp {verticesBox, emptyIndices};
-    Core::Mesh mesh {verticesBox, emptyIndices};
+    Core::Mesh lamp {verticesBox, emptyIndices, emptyTextures};
+    Core::Mesh mesh {verticesBox, emptyIndices, emptyTextures};
 
     Core::Material materialMat {
         glm::vec3(1.0f, 0.5f, 0.31f),
@@ -198,14 +200,10 @@ int main(int argc, char **argv) {
         objectShader.setMat4("uView", viewMatrix);
         objectShader.setMat4("uProj", projMatrix);
 
-        mesh.bind();
-        mesh.draw();
-        mesh.unbind();
+        mesh.draw(objectShader);
 
 
         // Prepare lamp shader
-        lampShader.bind();
-
         glm::mat4 lampModelMatrix {};
         lampModelMatrix = glm::translate(lampModelMatrix, lampPos);
         lampModelMatrix = glm::scale(lampModelMatrix, glm::vec3(0.2f));
@@ -214,9 +212,7 @@ int main(int argc, char **argv) {
         lampShader.setMat4("uView", viewMatrix);
         lampShader.setMat4("uProj", projMatrix);
 
-        lamp.bind();
-        lamp.draw();
-        lamp.unbind();
+        lamp.draw(objectShader);
 
         // check/call events and swap buffers
         glfwSwapBuffers(main_window);

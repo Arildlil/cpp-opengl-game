@@ -10,7 +10,7 @@ namespace Core {
         public:
             Entity(const Core::Mesh& mesh, glm::vec3 pos, float scale = 1.0f);
             virtual ~Entity();
-            void draw() const { m_mesh.draw(); }
+            //void draw() const { m_mesh.draw(); }
             glm::vec3 getPos() const { return m_pos; }
             float getScale() const { return m_scale; }
             void setPos(const glm::vec3& toSet) { m_pos = toSet; }
