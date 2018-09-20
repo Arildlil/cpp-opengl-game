@@ -12,8 +12,8 @@
 namespace Core {
     class Mesh {
         public:
-            Mesh(std::vector<Core::Vertex>& vertices, std::vector<unsigned int>& indices,
-                std::vector<Core::Texture>& textures);
+            Mesh(std::vector<Core::Vertex> vertices, std::vector<unsigned int> indices,
+                std::vector<Core::Texture> textures);
             virtual ~Mesh();
             void bind();
             void unbind();
@@ -25,7 +25,7 @@ namespace Core {
         private:
             void setupMesh();
 
-            GLuint m_VBO, m_VAO, m_EBO;
+            GLuint m_VBO {0}, m_VAO {0}, m_EBO {0};
     };
 };
 

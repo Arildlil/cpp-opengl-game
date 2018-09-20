@@ -1,0 +1,624 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/Importer.hpp
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/types.h
+config.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/config.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/types.h
+sys/types.h
+-
+memory.h
+-
+math.h
+-
+stddef.h
+-
+string.h
+-
+limits.h
+-
+defs.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/defs.h
+vector3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/vector3.h
+vector2.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/vector2.h
+color4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/color4.h
+matrix3x3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/matrix3x3.h
+matrix4x4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/matrix4x4.h
+quaternion.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/quaternion.h
+cstring
+-
+new
+-
+string
+-
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/./Compiler/poppack1.h
+vector2.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/vector2.inl
+vector3.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/vector3.inl
+color4.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/color4.inl
+quaternion.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/quaternion.inl
+matrix3x3.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/matrix3x3.inl
+matrix4x4.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/matrix4x4.inl
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/AssimpPCH.h
+../include/assimp/defs.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/defs.h
+../include/assimp/Compiler/pstdint.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Compiler/pstdint.h
+stdint.h
+-
+ctype.h
+-
+vector
+-
+list
+-
+map
+-
+set
+-
+string
+-
+sstream
+-
+iomanip
+-
+cassert
+-
+stack
+-
+queue
+-
+iostream
+-
+algorithm
+-
+numeric
+-
+new
+-
+cstdio
+-
+limits.h
+-
+memory
+-
+boost/pointer_cast.hpp
+-
+boost/scoped_ptr.hpp
+-
+boost/scoped_array.hpp
+-
+boost/shared_ptr.hpp
+-
+boost/shared_array.hpp
+-
+boost/make_shared.hpp
+-
+boost/format.hpp
+-
+boost/foreach.hpp
+-
+boost/static_assert.hpp
+-
+boost/lexical_cast.hpp
+-
+../include/assimp/DefaultLogger.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/DefaultLogger.hpp
+../include/assimp/IOStream.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/IOStream.hpp
+../include/assimp/IOSystem.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/IOSystem.hpp
+../include/assimp/scene.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/scene.h
+../include/assimp/importerdesc.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/importerdesc.h
+../include/assimp/postprocess.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/postprocess.h
+../include/assimp/Importer.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Importer.hpp
+../include/assimp/Exporter.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Exporter.hpp
+BaseImporter.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BaseImporter.h
+StringComparison.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/StringComparison.h
+StreamReader.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/StreamReader.h
+qnan.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/qnan.h
+ScenePrivate.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ScenePrivate.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BaseImporter.h
+Exceptional.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/Exceptional.h
+string
+-
+map
+-
+vector
+-
+./../include/assimp/types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BaseProcess.h
+map
+-
+../include/assimp/types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+GenericProperty.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/GenericProperty.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/foreach.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/format.hpp
+string
+-
+vector
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/lexical_cast.hpp
+sstream
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/make_shared.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/pointer_cast.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/scoped_array.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/scoped_ptr.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/shared_array.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/shared_ptr.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BoostWorkaround/boost/static_assert.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ByteSwap.h
+../include/assimp/ai_assert.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/ai_assert.h
+../include/assimp/types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+stdlib.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/Exceptional.h
+stdexcept
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/GenericProperty.h
+./../include/assimp/Importer.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/./../include/assimp/Importer.hpp
+Hash.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/Hash.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/Hash.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ParsingUtils.h
+StringComparison.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/StringComparison.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ProcessHelper.h
+../include/assimp/postprocess.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/postprocess.h
+SpatialSort.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/SpatialSort.h
+BaseProcess.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/BaseProcess.h
+ParsingUtils.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ParsingUtils.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ScenePrivate.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/SpatialSort.h
+vector
+-
+../include/assimp/types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/StreamReader.h
+ByteSwap.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/ByteSwap.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/StringComparison.h
+../include/assimp/ai_assert.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/ai_assert.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/assbin_chunks.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/fast_atof.h
+math.h
+-
+limits.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/qnan.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/contrib/zlib/zlib.h
+zconf.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/contrib/zlib/zconf.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Compiler/pstdint.h
+stddef.h
+-
+limits.h
+-
+signal.h
+-
+stdint.h
+-
+wchar.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Compiler/pushpack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/DefaultLogger.hpp
+Logger.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Logger.hpp
+LogStream.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/LogStream.hpp
+NullLogger.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/NullLogger.hpp
+vector
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Exporter.hpp
+cexport.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/cexport.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/IOStream.hpp
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/IOSystem.hpp
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Importer.hpp
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+config.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/config.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/LogStream.hpp
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Logger.hpp
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/NullLogger.hpp
+Logger.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Logger.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/ai_assert.h
+assert.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/anim.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+quaternion.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/camera.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/cexport.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/color4.h
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/color4.inl
+color4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/color4.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/config.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/defs.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/importerdesc.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/light.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/material.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+material.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/material.inl
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/material.inl
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix3x3.h
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix3x3.inl
+matrix3x3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix3x3.h
+matrix4x4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix4x4.h
+algorithm
+-
+cmath
+-
+limits
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix4x4.h
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix4x4.inl
+matrix4x4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix4x4.h
+matrix3x3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix3x3.h
+quaternion.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.h
+algorithm
+-
+limits
+-
+cmath
+-
+math.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/mesh.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/metadata.h
+assert.h
+-
+Compiler/pstdint.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/Compiler/pstdint.h
+stdint.h
+-
+string
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/postprocess.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.inl
+quaternion.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.h
+cmath
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/scene.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+texture.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/texture.h
+mesh.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/mesh.h
+light.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/light.h
+camera.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/camera.h
+material.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/material.h
+anim.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/anim.h
+metadata.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/metadata.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/texture.h
+types.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/types.h
+sys/types.h
+-
+memory.h
+-
+math.h
+-
+stddef.h
+-
+string.h
+-
+limits.h
+-
+defs.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/defs.h
+vector3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector3.h
+vector2.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector2.h
+color4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/color4.h
+matrix3x3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix3x3.h
+matrix4x4.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix4x4.h
+quaternion.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.h
+cstring
+-
+new
+-
+string
+-
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+vector2.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector2.inl
+vector3.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector3.inl
+color4.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/color4.inl
+quaternion.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/quaternion.inl
+matrix3x3.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix3x3.inl
+matrix4x4.inl
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/matrix4x4.inl
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector2.h
+cmath
+-
+math.h
+-
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector2.inl
+vector2.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector2.h
+cmath
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector3.h
+cmath
+-
+math.h
+-
+./Compiler/pushpack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/pushpack1.h
+./Compiler/poppack1.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/./Compiler/poppack1.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector3.inl
+vector3.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/vector3.h
+cmath
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/include/assimp/version.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/CompareDump.cpp
+Main.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+../../code/assbin_chunks.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/assbin_chunks.h
+generic_inserter.hpp
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/generic_inserter.hpp
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Export.cpp
+Main.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/ImageExtractor.cpp
+Main.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+../code/fast_atof.h
+-
+../code/StringComparison.h
+-
+assimp/Compiler/pushpack1.h
+-
+assimp/Compiler/poppack1.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Info.cpp
+Main.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.cpp
+Main.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+stdio.h
+-
+string.h
+-
+time.h
+-
+limits
+-
+assimp/postprocess.h
+-
+assimp/version.h
+-
+assimp/scene.h
+-
+assimp/Importer.hpp
+-
+assimp/DefaultLogger.hpp
+-
+assimp/Exporter.hpp
+-
+../code/AssimpPCH.h
+-
+zlib.h
+-
+../contrib/zlib/zlib.h
+-
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/WriteDumb.cpp
+Main.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/Main.h
+../code/ProcessHelper.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/code/ProcessHelper.h
+../../code/assbin_chunks.h
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/code/assbin_chunks.h
+
+/home/arild/SpiderOak Hive/OpenGL/cpp-opengl-game-master/lib/assimp-3.1.1/tools/assimp_cmd/generic_inserter.hpp
+ostream
+-
+new
+-
+

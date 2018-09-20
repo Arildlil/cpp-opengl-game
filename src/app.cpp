@@ -6,6 +6,7 @@
 #include "core/camera.h"
 #include "core/mesh.h"
 #include "core/material.h"
+#include "core/model.h"
 
 #include "game/entity.h"
 #include "game/gamestaterunning.h"
@@ -43,9 +44,11 @@ void process_input(Core::Window& window, Core::Camera& camera, Game::GameState& 
 }*/
 
 int main(int argc, char **argv) {
-    
+    (void)argc;
+    (void)argv;
+
     glfwInit();
-    
+
     Core::Window gameWindow {800, 600, "My First OpenGL Window"};
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -128,8 +131,15 @@ int main(int argc, char **argv) {
 
     Core::Camera camera {};
 
+    /*
     Core::Mesh lamp {verticesBox, emptyIndices, emptyTextures};
     Core::Mesh mesh {verticesBox, emptyIndices, emptyTextures};
+    */
+
+    Core::Mesh mesh {verticesBox, emptyIndices, emptyTextures};
+
+    //Core::Model testModel {"assets/nanosuit.obj", false};
+    std::cout << "Loaded!\n";
 
     Core::Material materialMat {
         glm::vec3(1.0f, 0.5f, 0.31f),
@@ -201,9 +211,11 @@ int main(int argc, char **argv) {
         objectShader.setMat4("uProj", projMatrix);
 
         mesh.draw(objectShader);
+        //testModel.draw(objectShader);
 
 
         // Prepare lamp shader
+        /*
         glm::mat4 lampModelMatrix {};
         lampModelMatrix = glm::translate(lampModelMatrix, lampPos);
         lampModelMatrix = glm::scale(lampModelMatrix, glm::vec3(0.2f));
@@ -211,8 +223,9 @@ int main(int argc, char **argv) {
 
         lampShader.setMat4("uView", viewMatrix);
         lampShader.setMat4("uProj", projMatrix);
+        */
 
-        lamp.draw(objectShader);
+        //lamp.draw(objectShader);
 
         // check/call events and swap buffers
         glfwSwapBuffers(main_window);
