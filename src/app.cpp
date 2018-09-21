@@ -59,13 +59,13 @@ int main(int argc, char **argv) {
 
     glEnable(GL_DEPTH_TEST);
 
-    /*
+    
     std::vector<Core::Vertex> verticesPyramid {
-        {0.0f, 0.5f, 0.0f},     // top
-        {0.5f, -0.5f, 0.5f},    // front right
-        {-0.5f, -0.5f, 0.5f},   // front left
-        {-0.5f, -0.5f, -0.5f},  // back left
-        {0.5f, -0.5f, -0.5f},   // back right
+        {{0.0f, 0.5f, 0.0f}},     // top
+        {{0.5f, -0.5f, 0.5f}},    // front right
+        {{-0.5f, -0.5f, 0.5f}},   // front left
+        {{-0.5f, -0.5f, -0.5f}},  // back left
+        {{0.5f, -0.5f, -0.5f}},   // back right
     };
 
     std::vector<unsigned int> indicesPyramid {
@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
         0, 3, 4,    // back triangle
         2, 3, 4,    // bot triangle left
         1, 2, 4,    // bot triangle right
-    };*/
+    };
 
     std::vector<Core::Vertex> verticesBox {
         {{-0.5f, -0.5f, -0.5f}, {0.0f,  0.0f, -1.0f}},
@@ -137,8 +137,15 @@ int main(int argc, char **argv) {
     */
 
     Core::Mesh mesh {verticesBox, emptyIndices, emptyTextures};
+    Core::Mesh pyramid {verticesPyramid, indicesPyramid, emptyTextures};
+
+    Core::Model simpleTower{"assets/simpleTower/simpleTowerMerged.obj", false};
+    Core::Mesh& temp {simpleTower.getFirstMesh()};
+    Core::Mesh simpleTowerMesh {temp.m_vertices, temp.m_indices, emptyTextures};
+
 
     //Core::Model testModel {"assets/nanosuit.obj", false};
+    
     std::cout << "Loaded!\n";
 
     Core::Material materialMat {
@@ -183,7 +190,7 @@ int main(int argc, char **argv) {
 
         // change color
         glm::mat4 modelMatrix {};
-        modelMatrix = glm::translate(modelMatrix, glm::vec3(1.0f, 0.0f, 0.0f));
+        modelMatrix = glm::translate(modelMatrix, glm::vec3(2.0f, 0.0f, 0.0f));
         objectShader.setMat4("uModel", modelMatrix);
         
         objectShader.setVec3("material.ambient", materialMat.ambient());
@@ -211,6 +218,16 @@ int main(int argc, char **argv) {
         objectShader.setMat4("uProj", projMatrix);
 
         mesh.draw(objectShader);
+        
+        glm::vec3 towerPos = glm::vec3(0.0f, -1.0f, 0.0f);
+        glm::mat4 simpleTowerModelMatrix {};
+        simpleTowerModelMatrix = glm::translate(simpleTowerModelMatrix, towerPos);
+        simpleTowerModelMatrix = glm::rotate(simpleTowerModelMatrix, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        simpleTowerModelMatrix = glm::scale(simpleTowerModelMatrix, glm::vec3(0.2f));
+        objectShader.setMat4("uModel", simpleTowerModelMatrix);
+        simpleTowerMesh.draw(objectShader);
+        //simpleTower.draw(objectShader);
+        //partMesh.draw(objectShader);
         //testModel.draw(objectShader);
 
 
@@ -224,7 +241,15 @@ int main(int argc, char **argv) {
         lampShader.setMat4("uView", viewMatrix);
         lampShader.setMat4("uProj", projMatrix);
         */
+        glm::mat4 pyramidModelMatrix {};
+        pyramidModelMatrix = glm::translate(pyramidModelMatrix, lampPos);
+        pyramidModelMatrix = glm::scale(pyramidModelMatrix, glm::vec3(0.2f));
+        objectShader.setMat4("uModel", pyramidModelMatrix);
 
+        objectShader.setMat4("uView", viewMatrix);
+        objectShader.setMat4("uProj", projMatrix);
+
+        pyramid.draw(objectShader);
         //lamp.draw(objectShader);
 
         // check/call events and swap buffers

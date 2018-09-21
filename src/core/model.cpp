@@ -18,11 +18,21 @@ Model::Model(const std::string& path, bool gamma)
     :m_gammaCorrection{gamma}
 {
     loadModel(path);
+
+    std::cout << "num meshes: " << m_meshes.size() << std::endl;
+    std::cout << m_meshes[0].m_vertices.size() << ", " << m_meshes[0].m_indices.size() << std::endl;
+    std::cout << "path: " << path << std::endl;
 }
 
 void Model::draw(Core::Shader& shader) {
     for (unsigned int i {0}; i < m_meshes.size(); i++) {
         m_meshes[i].draw(shader);
+
+        /*
+        std::cout << "num meshes: " << m_meshes.size() << std::endl;
+        std::cout << m_meshes[i].m_vertices.size() << ", " << m_meshes[i].m_indices.size() << std::endl;
+        std::cout << "directory: " << m_directory << std::endl;
+        */
     }
 }
 
@@ -33,6 +43,8 @@ void Model::loadModel(const std::string& path)
     const aiScene *scene {importer.ReadFile(path, 
         aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace)};
         // | aiProcess_GenSmoothNormals
+
+    std::cout << "Read file \'" << path << "\'" << std::endl;
     
     // Error checking
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
@@ -55,6 +67,10 @@ void Model::loadModel(const std::string& path)
  */
 void Model::processNode(aiNode *node, const aiScene *scene) 
 {
+    std::cout << "\tProcessing node...\n";
+    std::cout << "\tNumMeshes: " << node->mNumMeshes << std::endl;
+    std::cout << "\tNumChildren: " << node->mNumChildren << std::endl;
+
     // Process all meshes in a node
     for (unsigned int i {0}; i < node->mNumMeshes; i++) {
         // The node contains the indices and relations between nodes,
@@ -62,6 +78,8 @@ void Model::processNode(aiNode *node, const aiScene *scene)
         aiMesh *mesh {scene->mMeshes[node->mMeshes[i]]};
         m_meshes.push_back(processMesh(mesh, scene));
     }
+
+    std::cout << "Processes meshes, now processing children nodes...\n";
 
     // Process the children after
     for (unsigned int i {0}; i < node->mNumChildren; i++) {
@@ -75,6 +93,8 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
     std::vector<unsigned int> indices;
     std::vector<Core::Texture> textures;
 
+    std::cout << "\t\tProcessing mesh! NumVertices: " << mesh->mNumVertices << "\n";
+
     // Walk through all vertices
     for (unsigned int i {0}; i < mesh->mNumVertices; i++) {
         Core::Vertex vertex;
@@ -85,13 +105,14 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
         vector.y = mesh->mVertices[i].y;
         vector.z = mesh->mVertices[i].z;
         vertex.m_pos = vector;
+
         // normals
         vector.x = mesh->mNormals[i].x;
         vector.y = mesh->mNormals[i].y;
         vector.z = mesh->mNormals[i].z;
         vertex.m_normal = vector;
-        // texture coordinates
         
+        // texture coordinates
         if (mesh->mTextureCoords[0]) {  // does the mesh have textures?
             glm::vec2 vec;
             // we assume that the models where a vertex can have multiple texture coords
@@ -101,19 +122,25 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
         } else {
             vertex.m_texCoords = glm::vec2(0.0f, 0.0f);
         }
+
+        /*
         // tangent
         vector.x = mesh->mTangents[i].x;
         vector.y = mesh->mTangents[i].y;
         vector.z = mesh->mTangents[i].z;
         vertex.m_tangent = vector;
+
         // bitangent
         vector.x = mesh->mBitangents[i].x;
         vector.y = mesh->mBitangents[i].y;
         vector.z = mesh->mBitangents[i].z;
         vertex.m_bitangent = vector;
+        */
         
         vertices.push_back(vertex);
     }
+
+    std::cout << "\t\tProcessing faces! NumFaces: " << mesh->mNumFaces << "\n";
 
     // walk through each of the mesh faces and get the indices of it
     for (unsigned int i {0}; i < mesh->mNumFaces; i++) {
@@ -122,6 +149,8 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
             indices.push_back(face.mIndices[j]);
         }
     }
+
+    std::cout << "\t\tProcessing materials!" << "\n";
 
     // process materials
     aiMaterial *material {scene->mMaterials[mesh->mMaterialIndex]};

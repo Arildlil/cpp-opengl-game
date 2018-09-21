@@ -20,6 +20,7 @@ namespace Core {
         public:
             Model(const std::string& path, bool gamma = false);
             void draw(Core::Shader& shader);
+            Core::Mesh& getFirstMesh() { return m_meshes[0]; };
         private:
             void loadModel(const std::string& path);
             void processNode(aiNode *node, const aiScene *scene);

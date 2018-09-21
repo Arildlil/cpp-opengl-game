@@ -22,6 +22,7 @@ void Mesh::setupMesh() {
     glGenVertexArrays(1, &m_VAO);
     glGenBuffers(1, &m_VBO);
     glGenBuffers(1, &m_EBO);
+    std::cout << "VAO: " << m_VAO << ", VBO: " << m_VBO << ", EBO: " << m_EBO << std::endl;
 
     glBindVertexArray(m_VAO);
     glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
@@ -53,7 +54,6 @@ void Mesh::setupMesh() {
     glEnableVertexAttribArray(4);
     glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Core::Vertex), 
         (void*)offsetof(Core::Vertex, m_bitangent));
-    
 
     glBindVertexArray(0);
 }
@@ -97,6 +97,11 @@ void Mesh::draw(Core::Shader& shader) {
     // Draw mesh
     shader.bind();
     bind();
+    
+    std::cout << "Drawing " << m_vertices.size() << " vertices!\n";
+    std::cout << "Num indices: " << m_indices.size() << "!\n";
+    
+    
     if (m_indices.size() == 0) { 
         glDrawArrays(GL_TRIANGLES, 0, m_vertices.size());
     } else {
