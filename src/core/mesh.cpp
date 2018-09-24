@@ -9,7 +9,45 @@ Mesh::Mesh(std::vector<Core::Vertex> vertices, std::vector<unsigned int> indices
     std::vector<Core::Texture> textures) 
     :m_vertices{vertices}, m_indices{indices}, m_textures{textures}
 {
+    m_VAO = 0, m_VBO = 0, m_EBO = 0;
     setupMesh();
+}
+
+Mesh::Mesh(const Mesh& that) 
+    :m_vertices{that.m_vertices}, m_indices{that.m_indices}, m_textures{that.m_textures}
+{
+    setupMesh();
+    std::cout << "Copying (ctor) VAO: " << that.m_VAO << "...\n";
+}
+
+Mesh& Mesh::operator=(const Mesh& that) {
+    std::cout << "Copying (op=) VAO: " << that.m_VAO << "...\n";
+    Mesh temp {that};
+    std::swap(temp, *this);
+    return *this;
+}
+
+Mesh::Mesh(Mesh&& that) 
+    :m_vertices{that.m_vertices}, m_indices{that.m_indices}, m_textures{that.m_textures}
+{
+    std::cout << "Moving (ctor) VAO: " << that.m_VAO << "...\n";
+    that.m_VAO = 0;
+    that.m_VBO = 0;
+    that.m_EBO = 0;
+    that.m_vertices.clear();
+    that.m_indices.clear();
+    that.m_textures.clear();
+}
+
+Mesh& Mesh::operator=(Mesh&& that) {
+    std::cout << "Moving (op=) VAO: " << that.m_VAO << "...\n";
+    std::swap(m_VAO, that.m_VAO);
+    std::swap(m_VBO, that.m_VBO);
+    std::swap(m_EBO, that.m_EBO);
+    std::swap(m_vertices, that.m_vertices);
+    std::swap(m_indices, that.m_indices);
+    std::swap(m_textures, that.m_textures);
+    return *this;
 }
 
 Mesh::~Mesh() {
@@ -42,10 +80,10 @@ void Mesh::setupMesh() {
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Core::Vertex), 
         (void*)offsetof(Core::Vertex, m_normal));
     // texture coords
-    
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Core::Vertex), 
         (void*)offsetof(Core::Vertex, m_texCoords));
+    /*
     // tangent
     glEnableVertexAttribArray(3);
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Core::Vertex), 
@@ -54,12 +92,14 @@ void Mesh::setupMesh() {
     glEnableVertexAttribArray(4);
     glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Core::Vertex), 
         (void*)offsetof(Core::Vertex, m_bitangent));
-
+    */
     glBindVertexArray(0);
 }
 
 void Mesh::bind() {
     glBindVertexArray(m_VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 }
 
 void Mesh::unbind() {
@@ -87,6 +127,8 @@ void Mesh::draw(Core::Shader& shader) {
             number = std::to_string(heightNr++);
         }
 
+        std::cout << "number in draw: " << number << std::endl;
+
         std::string shaderLocName {name + number};
         glUniform1i(shader.getTransformLoc(shaderLocName), i);
         //shader.setFloat(("material." + name + number).c_str(), i);
@@ -98,10 +140,11 @@ void Mesh::draw(Core::Shader& shader) {
     shader.bind();
     bind();
     
+    /*
     std::cout << "Drawing " << m_vertices.size() << " vertices!\n";
     std::cout << "Num indices: " << m_indices.size() << "!\n";
-    
-    
+    */
+
     if (m_indices.size() == 0) { 
         glDrawArrays(GL_TRIANGLES, 0, m_vertices.size());
     } else {

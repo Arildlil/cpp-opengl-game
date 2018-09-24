@@ -8,9 +8,11 @@ namespace Core {
         glm::vec3 m_pos;
         glm::vec3 m_normal;
         glm::vec2 m_texCoords;
+        /*
         glm::vec3 m_tangent;
         glm::vec3 m_bitangent;
-
+        */
+       
         //Vertex(glm::vec3 pos, glm::vec3 normal/*, glm::vec2 coords = glm::vec2{0,0}*/) 
         //    :m_pos{pos}, m_normal{normal}/*, m_texCoords{coords}*/ {};
     };

@@ -24,6 +24,15 @@ Model::Model(const std::string& path, bool gamma)
     std::cout << "path: " << path << std::endl;
 }
 
+Model::Model(const std::vector<Core::Mesh>& meshes, bool gamma) 
+    :m_gammaCorrection{gamma}
+{
+    for (int i {0}; i < meshes.size(); i++) {
+        m_meshes.push_back(Core::Mesh(meshes[i].m_vertices,
+            meshes[i].m_indices, meshes[i].m_textures));
+    }
+}
+
 void Model::draw(Core::Shader& shader) {
     for (unsigned int i {0}; i < m_meshes.size(); i++) {
         m_meshes[i].draw(shader);
@@ -177,6 +186,8 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
     // 4. height maps
     std::vector<Core::Texture> heightMaps {loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height")};
     textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
+
+    std::cout << "\t\ttextures.size(): " << textures.size() << std::endl;
 
     // return a mesh object from the extraced mesh data
     return Core::Mesh(vertices, indices, textures);

@@ -139,12 +139,7 @@ int main(int argc, char **argv) {
     Core::Mesh mesh {verticesBox, emptyIndices, emptyTextures};
     Core::Mesh pyramid {verticesPyramid, indicesPyramid, emptyTextures};
 
-    Core::Model simpleTower{"assets/simpleTower/simpleTowerMerged.obj", false};
-    Core::Mesh& temp {simpleTower.getFirstMesh()};
-    Core::Mesh simpleTowerMesh {temp.m_vertices, temp.m_indices, emptyTextures};
-
-
-    //Core::Model testModel {"assets/nanosuit.obj", false};
+    Core::Model simpleTower {"assets/simpleTower/simpleTower.obj", false};
     
     std::cout << "Loaded!\n";
 
@@ -225,10 +220,10 @@ int main(int argc, char **argv) {
         simpleTowerModelMatrix = glm::rotate(simpleTowerModelMatrix, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         simpleTowerModelMatrix = glm::scale(simpleTowerModelMatrix, glm::vec3(0.2f));
         objectShader.setMat4("uModel", simpleTowerModelMatrix);
-        simpleTowerMesh.draw(objectShader);
-        //simpleTower.draw(objectShader);
-        //partMesh.draw(objectShader);
-        //testModel.draw(objectShader);
+
+        simpleTower.draw(objectShader);
+        
+        
 
 
         // Prepare lamp shader
