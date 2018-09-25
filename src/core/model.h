@@ -1,13 +1,13 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "shader.h"
-#include "mesh.h"
-#include "texture.h"
-
 #include "../../include/assimp/Importer.hpp"
 #include "../../include/assimp/scene.h"
 #include "../../include/assimp/postprocess.h"
+
+#include "shader.h"
+#include "mesh.h"
+#include "texture.h"
 
 #include <string>
 

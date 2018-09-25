@@ -38,7 +38,6 @@ void Model::draw(Core::Shader& shader) {
         m_meshes[i].draw(shader);
 
         /*
-        std::cout << "num meshes: " << m_meshes.size() << std::endl;
         std::cout << m_meshes[i].m_vertices.size() << ", " << m_meshes[i].m_indices.size() << std::endl;
         std::cout << "directory: " << m_directory << std::endl;
         */

@@ -1,7 +1,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "gl_header.h"
+#include <../../include/glm/glm.hpp>
+#include <../../include/glm/gtc/matrix_transform.hpp>
+#include <../../include/glm/gtc/type_ptr.hpp>
 
 namespace Core {
     class Camera {

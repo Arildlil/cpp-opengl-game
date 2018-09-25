@@ -1,5 +1,4 @@
 #include "mesh.h"
-#include "gl_header.h"
 
 #include <iostream>
 
@@ -28,7 +27,8 @@ Mesh& Mesh::operator=(const Mesh& that) {
 }
 
 Mesh::Mesh(Mesh&& that) 
-    :m_vertices{that.m_vertices}, m_indices{that.m_indices}, m_textures{that.m_textures}
+    :m_vertices{that.m_vertices}, m_indices{that.m_indices}, m_textures{that.m_textures},
+    m_VAO{that.m_VAO}, m_VBO{that.m_VBO}, m_EBO{that.m_EBO}
 {
     std::cout << "Moving (ctor) VAO: " << that.m_VAO << "...\n";
     that.m_VAO = 0;

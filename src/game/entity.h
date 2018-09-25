@@ -1,9 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "../core/gl_header.h"
-
 #include "../core/mesh.h"
+
+#include <../../include/glm/glm.hpp>
 
 namespace Core {
     class Entity {

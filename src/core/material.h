@@ -1,7 +1,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#include "gl_header.h"
+#include <../../include/glm/glm.hpp>
 
 namespace Core {
     class Material {
