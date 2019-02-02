@@ -7,7 +7,7 @@ DEBUG = -g
 
 TESTS = tests/tests.cpp
 APP = src/app.cpp
-OBJS = src/core/*.c lib/libglfw3.a lib/libassimp.so src/core/*.cpp src/game/*.cpp
+OBJS = src/core/*.c src/core/*.cpp src/game/*.cpp
 
 INCS = -I/usr/include/
 LIB_PATH = -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -L./lib -L.
